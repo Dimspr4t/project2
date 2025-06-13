@@ -36,7 +36,7 @@ function StudioHeader() {
 // Komponen body utama, props bisa ditambah untuk data dari database
 function StudioBody() {
   return (
-    <body className="min-h-screen w-full bg-gradient-to-br from-[#f8fafc] via-[#e0e7ef] to-[#f1f5f9] dark:from-[#18181b] dark:via-[#23272f] dark:to-[#18181b] flex flex-col">
+    <div className="min-h-screen w-full bg-gradient-to-br from-[#f8fafc] via-[#e0e7ef] to-[#f1f5f9] dark:from-[#18181b] dark:via-[#23272f] dark:to-[#18181b] flex flex-col">
       {/* Hero Section */}
       <StudioHeader />
       {/* Showcase Section */}
@@ -104,7 +104,7 @@ function StudioBody() {
       <footer className="w-full py-8 text-center text-gray-500 dark:text-gray-400 text-sm">
         © {new Date().getFullYear()} StudioVA. All rights reserved.
       </footer>
-    </body>
+    </div>
   );
 }
 
