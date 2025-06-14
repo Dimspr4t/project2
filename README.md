@@ -34,7 +34,74 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-"# project2" 
-"# project2" 
-"# project2" 
-"# project2" 
+
+## Struktur Branch & App Deployment
+
+- **main** → deploy ke `apps/moneysite`
+- **staging** → deploy ke `apps/staging`
+- **panel** → deploy ke `apps/panel`
+
+## 2. Pengaturan Cloudflare Pages
+
+Untuk setiap aplikasi, buat satu project Cloudflare Pages:
+
+### Project moneysite
+- **Source:** branch `main`
+- **Root directory:** `apps/moneysite`
+
+### Project staging
+- **Source:** branch `staging`
+- **Root directory:** `apps/staging`
+
+### Project admin
+- **Source:** branch `panel`
+- **Root directory:** `apps/panel`
+
+## 3. Build Settings (untuk setiap project Cloudflare Pages)
+
+- **Build command:**
+  ```
+  npx turbo run build --filter=<app-name>...
+  ```
+  Contoh untuk moneysite:
+  ```
+  npx turbo run build --filter=moneysite...
+  ```
+
+- **Root directory:**
+  - `apps/moneysite` (untuk moneysite)
+  - `apps/staging` (untuk staging)
+  - `apps/panel` (untuk admin/panel)
+
+- **Output directory:**
+  ```
+  .vercel/output/static
+  ```
+  *(atau sesuai output Next.js/Cloudflare jika menggunakan @cloudflare/next-on-pages)*
+
+## 4. Environment Variable
+
+Pastikan setiap app punya environment variable yang sesuai di Cloudflare Pages dashboard, misal:
+- `.env.production` untuk production (moneysite)
+- `.env.staging` untuk staging
+- `.env` atau `.env.local` untuk development
+
+Setiap variable dapat diatur melalui menu **Environment Variables** di Cloudflare Pages dashboard untuk masing-masing project/app.
+
+---
+
+## 5. Contoh .gitignore (root project)
+```
+node_modules
+.next
+out
+dist
+.vercel
+.env
+.env.local
+.env.*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+```

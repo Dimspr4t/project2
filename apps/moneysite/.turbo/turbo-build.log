@@ -1,0 +1,15 @@
+
+> build
+> next build
+
+   ▲ Next.js 15.3.3
+
+   Creating an optimized production build ...
+ ⨯ page.tsx doesn't have a root layout. To fix this error, make sure every page has a root layout.
+npm error Lifecycle script `build` failed with error:
+npm error code 1
+npm error path E:\DESIGN\ANGGA\Website\Nextjs\dimspr4t-project2\project2\apps\moneysite
+npm error workspace moneysite
+npm error location E:\DESIGN\ANGGA\Website\Nextjs\dimspr4t-project2\project2\apps\moneysite
+npm error command failed
+npm error command C:\Windows\system32\cmd.exe /d /s /c next build

@@ -1,5 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
+// import { createClient } from '@supabase/supabase-js'
+// const supabase = createClient('https://xyz.supabase.co', 'public-anon-key')
+// ...fetch data logic...
 
 // Komponen header, props bisa ditambah untuk data dari database
 function StudioHeader() {
@@ -36,7 +39,6 @@ function StudioHeader() {
 // Komponen body utama, props bisa ditambah untuk data dari database
 function StudioBody() {
   return (
-    // body tanpa <div>
     <>
       {/* header */}
       <StudioHeader />
@@ -101,6 +103,28 @@ function StudioBody() {
           </div>
         </div>
       </section>
+      {/* giscus komentar */}
+      <section className="max-w-2xl mx-auto my-8">
+        {/* <script src="https://giscus.app/client.js"
+          data-repo="owner/repo"
+          data-repo-id="..."
+          data-category="..."
+          data-category-id="..."
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="en"
+          crossOrigin="anonymous"
+          async /> */}
+        <div className="giscus" />
+      </section>
+      {/* embed form google forms */}
+      <section className="max-w-2xl mx-auto my-8">
+        {/* <iframe src="https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true" width="640" height="800" frameBorder="0" marginHeight={0} marginWidth={0}>Loading…</iframe> */}
+      </section>
       {/* footer */}
       <footer className="w-full py-8 text-center text-gray-500 dark:text-gray-400 text-sm">
         © {new Date().getFullYear()} StudioVA. All rights reserved.
@@ -119,9 +143,14 @@ export default function Home() {
           content="Creative digital studio for brands, products, and experiences."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* <script async defer data-domain="yourdomain.com" src="https://plausible.io/js/plausible.js"></script> */}
       </Head>
-      {/* Tambahkan meta tambahan di sini jika diperlukan */}
       <StudioBody />
     </>
   );
 }
+
+// Contoh integrasi penuh fitur (giscus, google forms, plausible):
+// - Pastikan konfigurasi sudah sesuai kebutuhan Anda
+// - Untuk fitur lain (misal: Supabase, Disqus, Formspree, GA), tambahkan kode pada komponen/page yang relevan sesuai dokumentasi resmi masing-masing layanan
+// - Untuk fitur lain (misal: Supabase, Disqus, Formspree, GA), tambahkan kode pada komponen/page yang relevan sesuai dokumentasi resmi masing-masing layanan
